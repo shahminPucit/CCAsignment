@@ -1,0 +1,117 @@
+<html>
+<head>
+
+
+  <title>Quadratic Equation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+
+   <body>
+      
+      <script language = "javascript" type = "text/javascript">
+         <!--
+            //Browser Support Code
+            function ajaxFunction(){
+               var ajaxRequest;  // The variable that makes Ajax possible!
+               
+               try {
+                  // Opera 8.0+, Firefox, Safari
+                  ajaxRequest = new XMLHttpRequest();
+               }catch (e) {
+                  // Internet Explorer Browsers
+                  try {
+                     ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+                  }catch (e) {
+                     try{
+                        ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+                     }catch (e){
+                        // Something went wrong
+                        alert("Your browser broke!");
+                        return false;
+                     }
+                  }
+               }
+               
+               // Create a function that will receive data 
+               // sent from the server and will update
+               // div section in the same page.
+					
+               ajaxRequest.onreadystatechange = function(){
+                  if(ajaxRequest.readyState == 4){
+                     var ajaxDisplay = document.getElementById('ajaxDiv');
+                     ajaxDisplay.innerHTML = ajaxRequest.responseText;
+                  }
+               }
+               
+               // Now get the value from user and pass it to
+               // server script.
+					
+               var a = document.getElementById('a').value;
+               var b = document.getElementById('b').value;
+               var c = document.getElementById('c').value;
+               var queryString = "?a=" + a ;
+            
+               queryString +=  "&b=" + b + "&c=" + c;
+               ajaxRequest.open("GET", "ajax-example.php" + queryString, true);
+               ajaxRequest.send(null); 
+            }
+         //-->
+      </script>
+		
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Quadratic Equation Solver</h1>
+    
+  </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+<div align="justify">
+<h3>Quadratic Equation</h3><br/>
+A <b>quadratic equation</b>  is any equation having the form where x represents an unknown, and a, b, and c represent known numbers such that a is not equal to 0. If a = 0, then the equation is linear, not quadratic. The numbers a, b, and c are the coefficients of the equation, and may be distinguished by calling them, respectively, the quadratic coefficient.
+<br/><img src="b.png" /><br/><br/>
+<h3>Quadratic Formula</h3><br/>
+The <b>quadratic formula</b> is the solution of the quadratic equation. There are other ways to solve the quadratic equation instead of using the quadratic formula, such as factoring, completing the square, or graphing. Using the quadratic formula is often the most convenient way.
+<br/><img src="a.png" /><br/><br/>
+</div>
+</div>
+        
+    <div class="col-sm-4">
+<div>
+<br/>
+<br/>
+<br/>
+ <form role="form">
+  <div class="form-group">
+    <label for="a">Enter value of a :</label>
+    <input type="text" class="form-control" id="a">
+  </div>
+  <div class="form-group">
+    <label for="b">Enter value of b :</label>
+    <input type="text" class="form-control" id="b">
+  </div>
+  <div class="form-group">
+    <label for="c">Enter value of c :</label>
+    <input type="text" class="form-control" id="c">
+   </div>
+   <button type = "button" class="btn btn-default" onclick = 'ajaxFunction()'>Calculate</button>
+  <div class="form-group">
+      <br/><label for="result">Result :</label>
+      <div id = 'ajaxDiv'>Your result will display here</div>
+       </div>
+      </form>	
+   </div>
+</div>
+    </div>
+</div>
+</div>
+</div>
+
+ </body>
+</html>
